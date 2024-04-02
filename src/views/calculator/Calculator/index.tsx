@@ -48,7 +48,9 @@ export const Calculator = () => {
       <button
         disabled={isLastSubjectIncomplete}
         onClick={handleAddSubject}
-        className="flex gap-2 items-center p-2 bg-yellow-200 text-gray-800 rounded mb-5 shadow-lg hover:bg-yellow-300 font-bold"
+        className={`flex gap-2 items-center p-2 bg-yellow-200 text-gray-800 rounded mb-5 shadow-lg hover:bg-yellow-300 font-bold ${
+          isLastSubjectIncomplete ? "opacity-50" : ""
+        }`}
       >
         <FaPlus />
         Add subject
