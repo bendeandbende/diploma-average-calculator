@@ -22,7 +22,6 @@ const persistedReducer = persistReducer(persistConfig, calculatorReducer);
 export const store = configureStore({
   reducer: {
     calculator: persistedReducer,
-    // other reducers...
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
