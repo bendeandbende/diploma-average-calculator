@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import storage from "redux-persist/lib/storage";
 import calculatorReducer from "@/store/calculator/calculatorSlice";
 import {
   persistStore,
@@ -22,7 +22,6 @@ const persistedReducer = persistReducer(persistConfig, calculatorReducer);
 export const store = configureStore({
   reducer: {
     calculator: persistedReducer,
-    // other reducers...
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
