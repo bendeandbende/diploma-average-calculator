@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Subject } from "@/types";
 
 interface CalculatorState {
@@ -26,16 +26,12 @@ export const calculatorSlice = createSlice({
       state,
       action: PayloadAction<{
         index: number;
-        field: keyof Subject;
-        value: string;
+        subject: Subject;
       }>
     ) => {
-      const { index, field, value } = action.payload;
-      if (field === "grade" || field === "credit") {
-        state.subjects[index][field] = Number(value);
-      } else {
-        state.subjects[index][field] = value;
-      }
+      const { index, subject } = action.payload;
+
+      state.subjects[index] = subject;
     },
     deleteSubject: (state, action: PayloadAction<number>) => {
       state.subjects.splice(action.payload, 1);
